@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from urllib.error import HTTPError
 import os
 
 app = FastAPI()
@@ -12,6 +11,9 @@ class Msg(BaseModel):
 class Tweet(BaseModel):
     token: str
     text: str
+
+    class Config:
+        orm_mode = True
 
 @app.get("/")
 async def root():
