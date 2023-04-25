@@ -17,7 +17,7 @@ class Tweet(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World. Welcome to FastAPI!"}
+    return
 
 
 @app.get("/path")

@@ -30,5 +30,6 @@ def aurhor():
 # ツイートを投稿
 # 文章を配列にすることで改行可能
 def tweet(api, tweet_text: str):
-    array = tweet_text.split("\n")
-    api.update_status(array)
+    # array = tweet_text.split("\n")
+    print(tweet_text)
+    api.update_status(tweet_text)
