@@ -1,12 +1,31 @@
----
-title: FastAPI
-description: A FastAPI server
-tags:
-  - fastapi
-  - python
----
+# BookmarkTweetFastAPI
 
-# FastAPI Example
+はてなブックマークとTwitterへの投稿を行うWebAPIです。
+Railwayを使うと同一環境を作成できます。
+
+
+## Usage
+
+同環境を作成した後、Railwayの設定から環境変数を設定してください。
+下記の右辺をトークンに置き換える必要があります。
+
+```.dotenv
+consumer_key=TwitterのCONSUMER_KEY
+consumer_secret=TwitterのCONSUMER_SERCRET
+access_token=TwitterのACCECE_TOKEN
+access_token_secret=TwitterのACCECE_TOKEN_SECRET
+SECURE_TOKEN=ランダムなトークン（認証用の為、なんでも良い）
+CONSUMER_KEY=はてなAPIのCONSUMER KEY
+CONSUMER_SECRET=はてなAPIのCONSUMER_SECRET
+ACCESS_TOKEN=はてなAPIのACCESS_TOKEN
+ACCESS_TOKEN_SECRET=はてなAPIのACCESS_TOKEN_SECRET
+```
+
+詳しくは [とらメモ](https://96tora.com/) の該当記事を参照してください。
+
+
+
+# FastAPI
 
 This example starts up a [FastAPI](https://fastapi.tiangolo.com/) server.
 
