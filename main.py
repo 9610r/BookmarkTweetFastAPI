@@ -33,7 +33,7 @@ async def create_tweet(item: Tweet):
     from twitter import twitter
     post_text = ""
 
-    if url.startswith("chrome://"):
+    if item.url.startswith("chrome://"):
         # `url`が`chrome://`で始まる場合はChromeの内部リンクなので、ブックマークしない。
         # ツイート機能だけはAPIの利用制限が確認できるように残しておく。
         post_text = f"{item.text}"
