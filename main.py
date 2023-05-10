@@ -30,13 +30,19 @@ async def create_tweet(item: Tweet):
         return {"error": f"This token is invailed."}
 
     from hatena import post
-    post.bookmark(item.url)
+    from twitter import twitter
+    post_text = ""
 
-    # トークンがあっていた場合は、処理を実行
-    import twitter
+    if url.startswith("chrome://"):
+        # `url`が`chrome://`で始まる場合はChromeの内部リンクなので、ブックマークしない。
+        # ツイート機能だけはAPIの利用制限が確認できるように残しておく。
+        post_text = f"{item.text}"
+    else:
+        post.bookmark(item.url)
+        post_text = f"{item.title}\n{item.url}\n{item.text}"
+
     api = twitter.aurhor()
-
-    post_text = item.title + "\n" + item.url + "\n" + item.text
     twitter.tweet(api, post_text)
     print("Tweet complete")
+
     return item.text
